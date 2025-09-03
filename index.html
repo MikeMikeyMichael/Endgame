@@ -4,57 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Endgame</title>
-  <meta name="description" content="We match top experts in STEM, software, and healthcare with leading AI labs.">
-
-  <!-- Favicons: match the files in your repo -->
+  <meta name="description" content="Endgame">
   <link id="favicon" rel="icon" href="favicon-light.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-light.svg" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="favicon-dark.svg"  media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="logo.png">
+  <link rel="preload" as="image" href="EndgameWhite.png">
 </head>
 <body>
   <a class="contact" href="mailto:contact@endgame.to">contact</a>
 
   <main>
-    <!-- logo file is at repo root -->
-    <img class="logo" src="logo.png" alt="Endgame logo">
-
-    <p class="tagline">
-      We match top experts in STEM, software, and healthcare with leading AI labs.
-    </p>
-
-    <section>
-      <h2>What we do</h2>
-      <ul class="justified">
-        <li>Partner with leading AI labs</li>
-        <li>Run expert labeling and evaluation projects</li>
-        <li>Build datasets and test suites</li>
-        <li>Improve model reasoning and safety</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Why work with us</h2>
-      <ul class="justified">
-        <li>$50-$200/hr depending on expertise</li>
-        <li>Fully remote with flexible hours</li>
-        <li>Work with leading AI labs</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Choose projects that fit you</h2>
-      <ul class="justified">
-        <li>Review and annotate data</li>
-        <li>Write and grade evaluation questions</li>
-        <li>Assess model outputs and reasoning</li>
-      </ul>
-    </section>
+    <img
+      id="logo"
+      class="logo"
+      src="logo.png"
+      data-light="logo.png"
+      data-dark="EndgameWhite.png"
+      alt="Endgame logo"
+      decoding="async"
+      loading="eager"
+      fetchpriority="high">
   </main>
 
   <footer>© 2025 Endgame</footer>
-  <button id="themeToggle" class="toggle" aria-label="Toggle theme" title="Toggle theme"></button>
+  <button id="themeToggle" class="toggle" aria-label="Toggle theme"></button>
+
   <script src="script.js"></script>
 </body>
 </html>
