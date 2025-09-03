@@ -9,8 +9,9 @@
     if (logo){
       logo.src = mode === "dark" ? logo.dataset.dark : logo.dataset.light;
     }
-    if (fav){
-      fav.href = mode === "dark" ? "favicon-dark.svg" : "favicon-light.svg";
+    if (fav) fav.href = document.documentElement.classList.contains("dark")
+      ? "e-dark-2025.svg"
+      : "e-light-2025.svg";
     }
     localStorage.setItem(KEY, mode);
   }
