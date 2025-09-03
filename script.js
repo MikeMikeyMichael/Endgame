@@ -1,23 +1,28 @@
 (function () {
-  const el = document.documentElement;
   const KEY = "endgame-theme";
-  const saved = localStorage.getItem(KEY);
+  const root = document.documentElement;
+  const logo = document.getElementById("logo");
+  const fav = document.getElementById("favicon");
 
-  function setFav(mode){
-    const link = document.getElementById("favicon");
-    if (link) link.href = mode === "dark" ? "favicon-dark.svg" : "favicon-light.svg";
+  function apply(mode){
+    root.classList.toggle("dark", mode === "dark");
+    if (logo){
+      logo.src = mode === "dark" ? logo.dataset.dark : logo.dataset.light;
+    }
+    if (fav){
+      fav.href = mode === "dark" ? "favicon-dark.svg" : "favicon-light.svg";
+    }
+    localStorage.setItem(KEY, mode);
   }
 
-  if (saved === "dark") { el.classList.add("dark"); setFav("dark"); }
-  else { setFav("light"); }
+  const saved = localStorage.getItem(KEY);
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  apply(saved ? saved : (prefersDark ? "dark" : "light"));
 
   const btn = document.getElementById("themeToggle");
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    el.classList.toggle("dark");
-    const mode = el.classList.contains("dark") ? "dark" : "light";
-    localStorage.setItem(KEY, mode);
-    setFav(mode);
-  });
+  if (btn){
+    btn.addEventListener("click", () => {
+      apply(root.classList.contains("dark") ? "light" : "dark");
+    });
+  }
 })();
