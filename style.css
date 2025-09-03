@@ -3,10 +3,14 @@
 
 *{ box-sizing:border-box }
 html,body{ height:100% }
+
 body{
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  line-height:1.6; font-size:clamp(16px,1.6vw,18px);
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  line-height:1.6;
+  font-size:clamp(16px,1.6vw,18px);
   text-rendering:optimizeLegibility;
 }
 
@@ -14,16 +18,24 @@ main{ min-height:100vh; display:grid; place-items:center; }
 .logo{ width:min(520px,70vw); height:auto; display:block; }
 
 .contact{
-  position:fixed; top:16px; right:20px; color:var(--text);
-  text-decoration:none; font-size:14px; padding:6px 10px; border-radius:999px;
+  position:fixed; top:16px; right:20px;
+  color:var(--text); text-decoration:none;
+  font-size:14px; padding:6px 10px; border-radius:999px;
 }
 .contact:hover{ opacity:.85 }
 
-footer{ position:fixed; left:20px; bottom:16px; font-size:12px; color:var(--text) }
-
-/* Solid, borderless toggle with reversed color */
-.toggle{
-  position:fixed; right:20px; bottom:16px; width:44px; height:44px;
-  border:none; border-radius:50%; background:var(--solid); cursor:pointer;
+footer{
+  position:fixed; left:20px; bottom:16px;
+  font-size:12px; color:var(--text);
 }
+
+/* solid, borderless toggle with reversed color */
+.toggle{
+  position:fixed; right:20px; bottom:16px;
+  width:44px; height:44px; border-radius:50%;
+  border:none; outline:none; background:var(--solid);
+  cursor:pointer; z-index:10;
+}
+.toggle:hover{ opacity:.9 }
 .toggle:active{ transform:scale(.98) }
+.toggle:focus{ outline:2px solid currentColor; outline-offset:2px }
